@@ -53,6 +53,17 @@ const routes = [
         }
     },
 
+    // ./user
+    {
+        method: 'POST',
+        path: '/user',
+        handler: (req, h) => {
+            return h.response('success')
+                    .type('text/plain')
+                    .header('X-Custom', 'some-value');
+        }
+    },
+
     // Any other method
     {
         method: '*',
