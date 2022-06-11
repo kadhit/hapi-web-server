@@ -31,17 +31,18 @@ const routes = [
         },
     },
     
-    // ./hello/(stranger|name)
+    // ./hello/(stranger|name) + ?lang=''
     {
         method: 'GET',
         path: '/hello/{name?}',
         handler: (req, h) => {
             const { name = "stranger" } = req.params;
-            return `Hello, ${name}!`;
+            const { lang } = req.query;
+            return lang === 'id' ? `Hai, ${name}!` : `Hello, ${name}`;
         }
 
     },
-    
+
     // Any other method
     {
         method: '*',
