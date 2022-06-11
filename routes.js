@@ -30,7 +30,18 @@ const routes = [
             return 'Page cannot be accessed by that method.';
         },
     },
+    
+    // ./hello/(stranger|name)
+    {
+        method: 'GET',
+        path: '/hello/{name?}',
+        handler: (req, h) => {
+            const { name = "stranger" } = req.params;
+            return `Hello, ${name}!`;
+        }
 
+    },
+    
     // Any other method
     {
         method: '*',
